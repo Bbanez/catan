@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package proto_utils;
+
+import "proto_utils/point.proto";
+import "proto_utils/size.proto";
+
+message BoundingBox {
+   Point position = 1;
+   Size size = 2;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto_game;
+
+import "proto_utils/point.proto";
+
+message GameMapEdge {
+  uint32 id = 1;
+  proto_utils.PointInt pos = 2;
+  repeated uint32 nodeIds = 3;
+  bool hasRode = 4;
+  string playerId = 5;
+}

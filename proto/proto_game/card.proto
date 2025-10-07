@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package proto_game;
+
+enum GameCardResourceType {
+  GAME_CARD_RESOURCE_ORE = 0;
+  GAME_CARD_RESOURCE_WOOD = 1;
+  GAME_CARD_RESOURCE_WHEAT = 2;
+  GAME_CARD_RESOURCE_CLAY = 3;
+  GAME_CARD_RESOURCE_SHEEP = 4;
+  GAME_CARD_RESOURCE_DESERT = 5;
+}
+
+message GameCardResource {
+  GameCardResourceType type = 1;
+  uint32 amount = 2;
+}
+
+enum GameCardProgressType {
+  GAME_CARD_PROGRESS_POINT = 0;
+  GAME_CARD_PROGRESS_ROAD_BUILD = 1;
+  GAME_CARD_PROGRESS_MONOPOLY = 2;
+  GAME_CARD_PROGRESS_INVENTION = 3;
+  GAME_CARD_PROGRESS_KNIGHT = 4;
+}
+
+message GameCardProgress {
+  GameCardProgressType type = 1;
+  bool canActivate = 2;
+  bool active = 3;
+}
+
+enum GameCardAchievementType {
+  GAME_CARD_ACHIEVEMENT_MOST_ROADS_BUILT = 0;
+  GAME_CARD_ACHIEVEMENT_BIGGEST_ARMY = 1;
+}
+
+message GameCardAchievement {
+  GameCardAchievementType type = 1;
+}
+

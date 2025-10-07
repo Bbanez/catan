@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package proto_game;
+
+import "proto_game/card.proto";
+import "proto_utils/point.proto";
+
+message GameMapTile {
+  uint32 id = 1;
+  proto_utils.PointInt pos = 2;
+  proto_game.GameCardResourceType resourceType = 3;
+  uint32 num = 4;
+  bool blocked = 5;
+  repeated uint32 nodeIds = 6;
+  repeated uint32 edgeIds = 7;
+}

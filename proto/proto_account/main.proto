@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto_account;
+
+option go_package = "proto_account";
+
+message Account {
+  string id = 1;
+  uint64 createdAt = 2;
+  uint64 updatedAt = 3;
+  string username = 4;
+  bool active = 5;
+}

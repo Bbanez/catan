@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto_utils;
+
+import "proto_utils/tuple.proto";
+
+message StepFnU32F32 {
+  repeated proto_utils.TupleU32F32 steps = 1;
+}
+
+message StepFnF32U32 {
+  repeated proto_utils.TupleF32U32 steps = 1;
+}

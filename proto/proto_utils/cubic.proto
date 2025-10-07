@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto_utils;
+
+message Cubic {
+  float a = 1;
+  float b = 2;
+  float c = 3;
+  float d = 4;
+}

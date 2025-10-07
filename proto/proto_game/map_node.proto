@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto_game;
+
+import "proto_utils/point.proto";
+
+message GameMapNode {
+  uint32 id = 1;
+  proto_utils.PointInt pos = 2;
+  bool onSea = 3;
+  bool oreDock = 4;
+  bool woodDock = 5;
+  bool wheatDock = 6;
+  bool sheepDock = 7;
+  bool clayDock = 8;
+  bool generalDock = 9;
+  bool hasVillage = 10;
+  bool hasCity = 11;
+  string playerId = 12;
+}

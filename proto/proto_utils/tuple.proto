@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package proto_utils;
+
+message TupleU32 {
+  uint32 x = 1;
+  uint32 y = 2;
+}
+
+message TupleU32F32 {
+  uint32 x = 1;
+  float y = 2;
+}
+
+message TupleF32U32 {
+  float x = 1;
+  uint32 y = 2;
+}
+
+message TupleU64 {
+  uint64 x = 1;
+  uint64 y = 2;
+}
+
+message TupleF32 {
+  float x = 1;
+  float y = 2;
+}
+
+message TupleF64 {
+  double x = 1;
+  double y = 2;
+}

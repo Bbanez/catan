@@ -1,0 +1,60 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    theme: {
+        extend: {
+            fontFamily: {
+                primary: ['Exo 2'],
+                secondary: ['SDDystopianDemo'],
+            },
+            boxShadow: {
+                '3xl': '0 15px 60px 5px rgba(0, 0, 0, 0.3)',
+            },
+            colors: {
+                primary: {
+                    50: '#fff1f3',
+                    100: '#fee5e8',
+                    200: '#fccfd6',
+                    300: '#faa7b6',
+                    400: '#f6768f',
+                    500: '#ee456b',
+                    DEFAULT: '#ee456b',
+                    600: '#db2356',
+                    700: '#cb1a4f',
+                    800: '#9a1742',
+                    900: '#84173e',
+                    950: '#4a071e',
+                },
+                secondary: {
+                    50: '#f0fdfb',
+                    100: '#cdfaf4',
+                    200: '#9bf4ec',
+                    300: '#61e7df',
+                    400: '#30d1cd',
+                    500: '#1acbc9',
+                    DEFAULT: '#1acbc9',
+                    600: '#108f91',
+                    700: '#117274',
+                    800: '#125b5d',
+                    900: '#144b4d',
+                    950: '#052b2e',
+                },
+                gray: {
+                    50: '#f9fafa',
+                    100: '#f2f5f5',
+                    200: '#e5e9e9',
+                    300: '#cfd8d8',
+                    400: '#b2bec0',
+                    500: '#9caaac',
+                    DEFAULT: '#9caaac',
+                    600: '#738386',
+                    700: '#5e6a6d',
+                    800: '#4e585a',
+                    900: '#434a4c',
+                    950: '#252c2d',
+                },
+            },
+        },
+    },
+    plugins: [],
+};

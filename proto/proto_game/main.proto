@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package proto_game;
+
+import "proto_game/player.proto";
+import "proto_game/card.proto";
+import "proto_game/map_node.proto";
+import "proto_game/map_edge.proto";
+import "proto_game/map_tile.proto";
+
+message GameBank {
+  uint32 ore = 1;
+  uint32 wood = 2;
+  uint32 wheat = 3;
+  uint32 sheep = 4;
+  uint32 clay = 5;
+}
+
+enum GameMapType {
+  GAME_MAP_TYPE_BASE = 0;
+}
+
+message Game {
+  string id = 1;
+  uint64 createdAt = 2;
+  string password = 3;
+  GameMapType mapType = 4;
+  string hostId = 5;
+  repeated proto_game.GamePlayer players = 6;
+  uint32 activePlayerIdx = 7;
+  GameBank bank = 8;
+  repeated proto_game.GameCardProgress progressCards = 9;
+  repeated proto_game.GameMapTile tiles = 10;
+  repeated proto_game.GameMapNode nodes = 11;
+  repeated proto_game.GameMapEdge edges = 12;
+}

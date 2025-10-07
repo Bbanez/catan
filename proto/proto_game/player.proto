@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto_game;
+
+import "proto_game/card.proto";
+
+enum GamePlayerColor {
+  GAME_PLAYER_COLOR_RED = 0;
+  GAME_PLAYER_COLOR_BLUE = 1;
+  GAME_PLAYER_COLOR_TEAL = 2;
+  GAME_PLAYER_COLOR_PURPLE = 3;
+}
+
+message GamePlayer {
+  string id = 1;
+  string username = 2;
+  GamePlayerColor color = 3;
+  repeated proto_game.GameCardAchievement achievementCards = 4;
+  repeated proto_game.GameCardResource resourceCards = 5;
+  repeated proto_game.GameCardProgress progressCards = 6;
+  uint32 availableRoads = 7;
+  uint32 availableVillages = 8;
+  uint32 availableCities = 9;
+}

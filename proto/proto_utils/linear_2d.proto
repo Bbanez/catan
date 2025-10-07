@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package proto_utils;
+
+import "proto_utils/point.proto";
+
+message SimpleLinear2DFn {
+  Point start = 1;
+  Point end = 2;
+}
+
+message Linear2DFn {
+  repeated Point points = 1;
+}

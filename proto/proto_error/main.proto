@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto_error;
+
+option go_package = "proto_error";
+
+message IpcError {
+  uint32 code = 1;
+  string message = 2;
+}

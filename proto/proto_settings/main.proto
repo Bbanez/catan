@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto_settings;
+
+option go_package = "proto_settings";
+
+message Settings {
+  string id = 1;
+  uint64 createdAt = 2;
+  uint64 updatedAt = 3;
+  uint32 renderWidth = 4;
+  bool useServer = 5;
+}
+
+message SettingsSet {
+  uint32 renderWidth = 1;
+  bool useServer = 2;
+}

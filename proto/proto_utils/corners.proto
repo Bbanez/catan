@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package proto_utils;
+
+import "proto_utils/point.proto";
+
+message Corners {
+  Point topLeft = 1;
+  Point topRight = 2;
+  Point bottomRight = 3;
+  Point bottomLeft = 4;
+}
