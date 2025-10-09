@@ -5,6 +5,22 @@ import (
 	"github.com/bbanez/catan/src/utils"
 )
 
+/*
+Relative node position to tile position
+Each tile is a hexagon but we can create a
+grid lines which are behaving like squares,
+therefore we don't need to work with fractions.
+
+Nodes between tiles can overlap and should have
+same absolute position, therefore we can merge
+them. This should be done on node creation level.
+
+		1,0
+	 0,1 /\ 2,1
+	 0,2 || 2,2
+		 \/
+		1,3
+*/
 type GameMapNode struct {
 	Id          uint32
 	Pos         utils.PointInt

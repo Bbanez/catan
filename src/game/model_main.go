@@ -58,6 +58,9 @@ func New(account *account.Account) *Game {
 			GameMapNodeNew(tile.Pos, *utils.NewPointInt(1, 3), 9),
 			GameMapNodeNew(tile.Pos, *utils.NewPointInt(0, 2), 9),
 		}
+		// NOTE: It should be better to use hashmap to node initialization
+		// but in this case it should not add alot of overhead since
+		// map is very small and there are less then 100 nodes
 		for _, node := range tmpNodes {
 			existingNode := utils.FindRef(nodes, func(n *GameMapNode) bool {
 				return n.Id == node.Id
