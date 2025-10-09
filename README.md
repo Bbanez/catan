@@ -110,7 +110,15 @@ Game loop:
 
 ## For Developers
 
-> Calculating tile coordinates
+There are some important abstract things about the game that will be
+covered in this section. This is not required to play the game, but it will
+help you understand the game mechanics.
+
+### Tiles
+
+Tiles, Nodes and Edges are important because players and place settlements
+and Roads on them, where Tiles are giving resources to players based on
+type of settlement they have on a specific Node for a specific Tile.
 
 Event though we are working with hexagons, Tile coordinates are based on the
 square grid. Something like this:
@@ -139,7 +147,7 @@ any size as long as hexagons are oriented in the same way.
 As far as this games goes, we will need to craft grid manually because there
 is no need to generalize grid coordinates generation for any grid size.
 
-> Calculating node coordinates
+### Nodes
 
 Node positions can be generated automatically relative to Tile position. If
 we take a look at each Tile on the grid, relative node position can be
@@ -162,10 +170,9 @@ defined like this:
 
 _Graph 2 - Nodes relative to Tiles_
 
-If we do this, absolute Node position can be calulated like this:
+If we do this, absolute Node position can be calculated like this:
 
 $$
-
 \begin{align}
 N_x = T_x + n_x \\
 N_y = T_y\times2 + n_y
@@ -211,9 +218,51 @@ This can be proven on $2\times2$ grid:
 _Graph 3 - Absolute Node positions in $2\times2$ grid_
 
 Inner Nodes of the grid above are not shown but you can verify them youself
-by using Graph 2 and Eq 1.
+by using _Graph 2_ and _Eq 1_.
 
-> Calculating edge coordinates
+### Edges
+
+For Edges, we can do the same thing as with Nodes, we just need to offset
+X and Y coordinates like this:
+
+```txt
+--- T(x,y) ---
+
+      /\
+ 1,0 /  \ 2,0
+    /    \
+0,1 | T  | 3,1
+    |    |
+    \    /
+ 1,2 \  / 2,2
+      \/
+```
+
+_Graph 4 - Edges relative to Tiles_
+
+To get Edges absolute position you will use:
+
+$$
+\begin{align}
+E_x = T_x + e_x \\
+E_y = T_y\times2 + e_y
+\end{align}
+$$
+
+_Eq 2 - Relative to absolute node position_
+
+where:
+
+- $T_x$ - Tile X position
+- $T_y$ - Tile Y position
+- $e_x$ - Relative Edge X position
+- $e_y$ - Relative Edge Y position
+- $E_x$ - Absolute Edge X position
+- $E_y$ - Absolute Edge Y position
+
+We will not repeat _Graph 3_, but by using _Eq 2_ and _Graph 4_, you should be
+able to verify that absolute Edges calculation is correct and will produce
+the same result as _Graph 3_.
 
 ---
 
