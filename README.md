@@ -229,8 +229,15 @@ This can be proven on $2\times2$ grid:
 
 _Graph 3 - Absolute Node positions in $2\times2$ grid_
 
-Inner Nodes of the grid above are not shown but you can verify them youself
+Inner Nodes of the grid above are not shown but you can verify them yourself
 by using _Graph 2_ and _Eq 1_.
+
+If we generate absolute Nodes for each Tile, we will have duplicate Nodes,
+but it is easy to merge them based on position. You can see this, for
+example, Node $(1\times5)$ is shared by 2 tiles and will be generated 2 times.
+We will be able to merge this Nodes because they will have the same position.
+This is not an optimal solution, but in case of this game implementation
+(very low amount of Tiles) it is not a problem.
 
 ### Edges
 
