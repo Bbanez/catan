@@ -11,7 +11,11 @@
 
 This is a base Catan game with maximum of 4 players.
 
-Game tiles:
+### Game Rules
+
+This rules are based on [official Catan rules](https://www.catan.com/sites/default/files/2025-03/CN3081%20CATAN%E2%80%93The%20Game%20Rulebook%20secure%20%281%29.pdf) for the base game.
+
+> Tiles
 
 - 3 Mine - resource Clay
 - 4 Forest - resource Wood
@@ -20,7 +24,7 @@ Game tiles:
 - 3 Mountain - resource Ore
 - 1 Desert - no resource
 
-Game resource cards in bank at the start of the game:
+> Game resource cards in bank at the start of the game:
 
 - 19 - Clay
 - 19 - Wood
@@ -28,7 +32,7 @@ Game resource cards in bank at the start of the game:
 - 19 - Wheat
 - 19 - Ore
 
-Game progression cards:
+> Game progression cards:
 
 - 2 - Monopoly - Request a resource card, each player must give 3 cards of
   that resource type. If a player does not have 3 cards, they must give
@@ -41,7 +45,7 @@ Game progression cards:
   to that tile node.
 - 5 - Points - Gain 1 point when activated.
 
-Achievement cards:
+> Achievement cards:
 
 - 1 - Longest Road - Gives 2 points - first player to connect 5 roads will
   get this achievement. If any other player connects more roads then
@@ -51,15 +55,23 @@ Achievement cards:
   more Knights then a player holding this achievement, they will take
   over the achievement.
 
-Thief:
+> Thief:
 
 - Tile on which Thief is placed will not produce resources.
 
-How to win:
+> Settlement
+
+- Settlement can be a Village or a City.
+- Settlements can be placed on a Node (see Nodes section).
+- Settlement must have a rode of the same color connected to it
+  (color is the same as a player since each player has a unique color).
+- Independent of the color, settlements must be 2 Edges away from each other.
+
+> How to win
 
 - First player to get 10 points is a winner.
 
-Game setup:
+> Game setup
 
 1. Tiles are shuffled and are placed from top left corner (2,0) clockwise.
 2. Number values are assigned to each tile starting from top left (2,0).
@@ -81,7 +93,7 @@ Game setup:
    each player will place another Village and a Road on the board.
 7. Game starts with a player that rolled the highest number.
 
-Game loop:
+> Game loop
 
 1. Active player rolls dices.
     - If 7 is rolled
