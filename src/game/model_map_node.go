@@ -102,6 +102,7 @@ func GameMapNodeNew(
 func GameMapNodeFromProto(node *pb.GameMapNode) *GameMapNode {
 	return &GameMapNode{
 		Id:          node.Id,
+		Pos:         *utils.PointIntFromProto(node.Pos),
 		OnSea:       node.OnSea,
 		OreDock:     node.OreDock,
 		WoodDock:    node.WoodDock,
@@ -118,6 +119,7 @@ func GameMapNodeFromProto(node *pb.GameMapNode) *GameMapNode {
 func (n *GameMapNode) ToProto() *pb.GameMapNode {
 	return &pb.GameMapNode{
 		Id:          n.Id,
+		Pos:         n.Pos.ToProto(),
 		OnSea:       n.OnSea,
 		OreDock:     n.OreDock,
 		WoodDock:    n.WoodDock,

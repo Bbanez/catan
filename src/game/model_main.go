@@ -31,7 +31,7 @@ func New(account *account.Account) *Game {
 	progressCards = GameCardProgressGenerateSet(progressCards, pb.GameCardProgressType_GAME_CARD_PROGRESS_MONOPOLY, 2)
 	progressCards = GameCardProgressGenerateSet(progressCards, pb.GameCardProgressType_GAME_CARD_PROGRESS_INVENTION, 2)
 	progressCards = GameCardProgressGenerateSet(progressCards, pb.GameCardProgressType_GAME_CARD_PROGRESS_KNIGHT, 14)
-	utils.Shuffle(progressCards)
+	utils.ShuffleRef(progressCards)
 	availableTileTypes := []pb.GameCardResourceType{}
 	availableTileTypes = append(availableTileTypes, utils.NewArrayWithValue(pb.GameCardResourceType_GAME_CARD_RESOURCE_DESERT, 1)...)
 	availableTileTypes = append(availableTileTypes, utils.NewArrayWithValue(pb.GameCardResourceType_GAME_CARD_RESOURCE_ORE, 3)...)

@@ -17,7 +17,8 @@ export const HomeView = defineComponent({
             {
                 text: 'Start Game',
                 async onClick() {
-                    console.log(await ipc.game.create());
+                    const gameData = await ipc.game.create();
+                    await router.push(`/game/${gameData.id}/pre`);
                 },
             },
             {

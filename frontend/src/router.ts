@@ -9,10 +9,12 @@ import type { Layouts } from '@root/layouts';
 import { P404View } from '@root/views/404';
 import { HomeView } from '@root/views/home';
 import { SettingsView } from '@root/views/settings';
+import { GamePreStartView } from '@root/views/game-pre-start';
 
 export const views = {
     HomeView,
     SettingsView,
+    GamePreStartView,
 
     P404View,
 };
@@ -65,6 +67,15 @@ const routes: Array<RouteRecordRawExtended> = [
             layout: 'MainLayout',
         },
         component: SettingsView,
+    },
+    {
+        path: '/game/:gameId/pre',
+        name: 'GamePreStartView',
+        meta: {
+            title: 'Game Pre Start',
+            layout: 'DefaultLayout',
+        },
+        component: GamePreStartView,
     },
     {
         path: '/:pathMatch(.*)*',

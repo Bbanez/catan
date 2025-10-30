@@ -1,10 +1,5 @@
 import { create } from '@bufbuild/protobuf';
-import {
-    PointSchema,
-    type Point as ProtoPoint,
-    Point3Schema,
-    type Point3 as ProtoPoint3,
-} from '@proto/proto_utils/point_pb';
+import * as pb from '@proto/proto_utils/point_pb';
 
 export class Point {
     constructor(
@@ -34,21 +29,29 @@ export class Point {
         );
     }
 
-    toProto(): ProtoPoint {
-        return create(PointSchema, {
+    toProto(): pb.Point {
+        return create(pb.PointSchema, {
             x: this.x,
             y: this.y,
         });
     }
 
-    static toProto(point: Point): ProtoPoint {
-        return create(PointSchema, {
-            x: point.x,
-            y: point.y,
+    static toProto(point: Point): pb.Point {
+        return point.toProto();
+    }
+
+    toProtoInt(): pb.PointInt {
+        return create(pb.PointIntSchema, {
+            x: this.x,
+            y: this.y,
         });
     }
 
-    static fromProto(proto: ProtoPoint): Point {
+    static toProtoInt(point: Point): pb.PointInt {
+        return point.toProtoInt();
+    }
+
+    static fromProto(proto: pb.Point | pb.PointInt): Point {
         return new Point(proto.x, proto.y);
     }
 }
@@ -62,14 +65,6 @@ export class Point3 {
 
     copy(): Point3 {
         return new Point3(this.x, this.y, this.z);
-    }
-
-    toProto(): ProtoPoint3 {
-        return create(Point3Schema, {
-            x: this.x,
-            y: this.y,
-            z: this.z,
-        });
     }
 
     isNear(point: Point3, delta: number): boolean {
@@ -94,15 +89,31 @@ export class Point3 {
         );
     }
 
-    static toProto(point: Point3): ProtoPoint3 {
-        return create(Point3Schema, {
-            x: point.x,
-            y: point.y,
-            z: point.z,
+    toProto(): pb.Point3 {
+        return create(pb.Point3Schema, {
+            x: this.x,
+            y: this.y,
+            z: this.z,
         });
     }
 
-    static fromProto(proto: ProtoPoint3): Point3 {
+    static toProto(point: Point3): pb.Point3 {
+        return point.toProto();
+    }
+
+    toProtoInt(): pb.Point3Int {
+        return create(pb.Point3IntSchema, {
+            x: this.x,
+            y: this.y,
+            z: this.z,
+        });
+    }
+
+    static toProtoInt(point: Point3): pb.Point3Int {
+        return point.toProtoInt();
+    }
+
+    static fromProto(proto: pb.Point3 | pb.Point3Int): Point3 {
         return new Point3(proto.x, proto.y, proto.z);
     }
 }

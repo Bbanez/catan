@@ -16,9 +16,9 @@ func GameCardProgressGenerateSet(cards []*GameCardProgress, typee pb.GameCardPro
 		cards,
 		utils.NewArrayWithValue(
 			GameCardProgressNew(
-				pb.GameCardProgressType_GAME_CARD_PROGRESS_POINT,
+				typee,
 			),
-			5,
+			amount,
 		)...,
 	)
 }
