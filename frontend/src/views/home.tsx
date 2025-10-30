@@ -2,6 +2,7 @@ import { defineComponent } from 'vue';
 import { Button } from '@root/components/button.tsx';
 import { useRouter } from 'vue-router';
 import clsx from 'clsx';
+import { ipc } from '@root/ipc/main';
 
 interface Item {
     text: string;
@@ -14,14 +15,16 @@ export const HomeView = defineComponent({
 
         const items: Item[] = [
             {
+                text: 'Start Game',
+                async onClick() {
+                    console.log(await ipc.game.create());
+                },
+            },
+            {
                 text: 'Settings',
                 async onClick() {
                     await router.push('/settings');
                 },
-            },
-            {
-                text: 'Exit',
-                async onClick() {},
             },
         ];
 

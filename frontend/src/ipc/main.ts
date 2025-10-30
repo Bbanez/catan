@@ -6,6 +6,7 @@ import {
     newIpcMessage,
     type IpcMessage,
 } from '@root/ipc/message';
+import { GameHandler } from '@root/ipc/handlers/game';
 
 export class Ipc {
     private static showTimig = true;
@@ -42,6 +43,7 @@ export class Ipc {
     }
 
     settings = new SettingsHandler();
+    game = new GameHandler();
 }
 
 export const ipc = new Ipc();

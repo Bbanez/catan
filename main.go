@@ -4,6 +4,7 @@ import (
 	"embed"
 
 	appstate "github.com/bbanez/catan/src/app_state"
+	game_api "github.com/bbanez/catan/src/game/api"
 	settings_api "github.com/bbanez/catan/src/settings/api"
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
@@ -19,6 +20,7 @@ func main() {
 	appstate.Init()
 	app := NewApp()
 	settingsApi := settings_api.New()
+	gameApi := game_api.New()
 	iconMac, err := assets.ReadFile("assets/icons/icon.icns")
 	if err != nil {
 		panic(err)
@@ -37,6 +39,7 @@ func main() {
 		OnStartup:        app.startup,
 		Bind: []interface{}{
 			settingsApi,
+			gameApi,
 			app,
 		},
 		Mac: &mac.Options{

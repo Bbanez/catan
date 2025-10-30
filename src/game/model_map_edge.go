@@ -13,10 +13,21 @@ type GameMapEdge struct {
 	PlayerId string
 }
 
-func GameMapEdgeNew(id uint32, nodeIds []uint32, ) *GameMapEdge {
+func GameMapEdgeNew(
+	tilePos utils.PointInt,
+	relativeNodePos utils.PointInt,
+	width uint32,
+	nodeIds *[]uint32,
+) *GameMapEdge {
+	x := tilePos.X + relativeNodePos.X
+	y := (tilePos.Y * 2) + relativeNodePos.Y
+	nids := []uint32{}
+	if nodeIds != nil {
+		nids = *nodeIds
+	}
 	return &GameMapEdge{
-		Id:       id,
-		NodeIds:  nodeIds,
+		Id:       uint32(utils.XYToIdx(x, y, int32(width))),
+		NodeIds:  nids,
 		HasRode:  false,
 		PlayerId: "",
 	}

@@ -36,11 +36,55 @@ type GameMapNode struct {
 	PlayerId    string
 }
 
-func GameMapNodeNew(tilePos utils.PointInt, relativeNodePos utils.PointInt, width uint32) *GameMapNode {
+func GameMapNodeCalcPosition(
+	tilePos *utils.PointInt,
+	relativeNodePos *utils.PointInt,
+) (int32, int32) {
 	x := tilePos.X + relativeNodePos.X
 	y := (tilePos.Y * 2) + relativeNodePos.Y
+	return x, y
+}
+
+func GameMapNodeCalcId(
+	x int32,
+	y int32,
+	mapWidthForNodes uint32,
+) uint32 {
+	return uint32(utils.XYToIdx(x, y, int32(mapWidthForNodes)))
+}
+
+func GameMapNodeCalcIdFromRelativePos(
+	tilePos *utils.PointInt,
+	relativeNodePos *utils.PointInt,
+	mapWidthForNodes uint32,
+) uint32 {
+	x, y := GameMapNodeCalcPosition(tilePos, relativeNodePos)
+	return GameMapNodeCalcId(x, y, mapWidthForNodes)
+}
+
+func GameMapNodeFindByRelativePos(
+	nodes []*GameMapNode,
+	tilePos *utils.PointInt,
+	relativeNodePos *utils.PointInt,
+) *GameMapNode {
+	for _, node := range nodes {
+		x, y := GameMapNodeCalcPosition(tilePos, relativeNodePos)
+		if node.Pos.X == x && node.Pos.Y == y {
+			return node
+		}
+	}
+	return nil
+}
+
+func GameMapNodeNew(
+	tilePos *utils.PointInt,
+	relativeNodePos *utils.PointInt,
+	mapWidthForNodes uint32,
+) *GameMapNode {
+	x, y := GameMapNodeCalcPosition(tilePos, relativeNodePos)
+	id := GameMapNodeCalcId(x, y, mapWidthForNodes)
 	return &GameMapNode{
-		Id:          uint32(utils.XYToIdx(x, y, int32(width))),
+		Id:          id,
 		Pos:         *utils.NewPointInt(x, y),
 		OnSea:       false,
 		OreDock:     false,

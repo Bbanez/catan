@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto_test;
+
+message TestChild2 {
+  string name = 1;
+}
+
+message TestChild1 {
+  string name = 1;
+  TestChild2 child = 2;
+}
+
+message Test {
+  string name = 1;
+  string description = 2;
+  repeated TestChild1 children = 3;
+}
+
+message Tests {
+  repeated Test items = 1;
+}
